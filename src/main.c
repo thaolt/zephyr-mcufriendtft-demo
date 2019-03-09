@@ -9,36 +9,46 @@ struct device *gpioa;
 struct device *gpiob;
 struct device *gpioc;
 
-#define GPIOC1 gpioc,1
-#define GPIOB0 gpiob,0
-#define GPIOA4 gpioa,4
-#define GPIOA0 gpioa,0
-#define GPIOA1 gpioa,1
+#define LCD_RST \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_RESET_GPIOS_CONTROLLER),\
+  DT_MCUFRIEND_ILI9341_0_RESET_GPIOS_PIN
+#define LCD_CS  \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_CS_GPIOS_CONTROLLER),\
+  DT_MCUFRIEND_ILI9341_0_CS_GPIOS_PIN
+#define LCD_RS \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_RS_GPIOS_CONTROLLER),\
+  DT_MCUFRIEND_ILI9341_0_RS_GPIOS_PIN
+#define LCD_WR \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_WR_GPIOS_CONTROLLER),\
+  DT_MCUFRIEND_ILI9341_0_WR_GPIOS_PIN
+#define LCD_RD \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_RD_GPIOS_CONTROLLER),\
+  DT_MCUFRIEND_ILI9341_0_RD_GPIOS_PIN
 
-#define GPIOA9 gpioa,9
-#define GPIOA8 gpioa,8
-#define GPIOC7 gpioc,7
-#define GPIOA10 gpioa,10
-#define GPIOB3 gpiob,3
-#define GPIOB5 gpiob,5
-#define GPIOB4 gpiob,4
-#define GPIOB10 gpiob,10
-#define GPIOB8 gpiob,8
-
-#define LCD_RST GPIOC1
-#define LCD_CS GPIOB0
-#define LCD_RS GPIOA4
-#define LCD_WR GPIOA1
-#define LCD_RD GPIOA0
-
-#define LCD_D0 GPIOA9
-#define LCD_D1 GPIOC7
-#define LCD_D2 GPIOA10
-#define LCD_D3 GPIOB3
-#define LCD_D4 GPIOB5
-#define LCD_D5 GPIOB4
-#define LCD_D6 GPIOB10
-#define LCD_D7 GPIOA8
+#define LCD_D0 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_0),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_0
+#define LCD_D1 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_1),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_1
+#define LCD_D2 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_2),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_2
+#define LCD_D3 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_3),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_3
+#define LCD_D4 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_4),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_4
+#define LCD_D5 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_5),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_5
+#define LCD_D6 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_6),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_6
+#define LCD_D7 \
+  device_get_binding(DT_MCUFRIEND_ILI9341_0_DB_GPIOS_CONTROLLER_7),\
+  DT_MCUFRIEND_ILI9341_0_DB_GPIOS_PIN_7
 
 #define HIGH 1
 #define LOW 0
@@ -338,9 +348,9 @@ SHELL_CMD_ARG_REGISTER(detectlcd, NULL, "detect lcd shield IC", cmd_detectlcd, 1
 
 void main(void)
 {
-  gpioa = device_get_binding("GPIOA");
-  gpiob = device_get_binding("GPIOB");
-  gpioc = device_get_binding("GPIOC");
+  //gpioa = device_get_binding("GPIOA");
+  //gpiob = device_get_binding("GPIOB");
+  //gpioc = device_get_binding("GPIOC");
 	printk("Hello Shell Demo App v0.0.1, running on %s\n", CONFIG_BOARD);
 }
 

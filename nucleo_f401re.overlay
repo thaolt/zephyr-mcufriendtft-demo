@@ -1,0 +1,24 @@
+/ {
+  tft {
+		compatible = "mcufriend,ili9341"; 
+		status = "ok";
+    label = "DISPLAY";
+
+		rotate = <0>;
+		buswidth = <8>;
+		reset-gpios = <&gpioc 1 0>;
+		rd-gpios = <&gpioa  0 0>;
+		rs-gpios = <&gpioa  4 0>;
+		cs-gpios = <&gpiob 0 0>;
+		wr-gpios = <&gpioa  1 0>;
+		db-gpios = <&gpioa  9 0>,
+		  <&gpioc 7 0>,
+		  <&gpioa 10 0>,
+		  <&gpiob 3 0>,
+		  <&gpiob 5 0>,
+		  <&gpiob 4 0>,
+		  <&gpiob  10 0>,
+		  <&gpioa  8 0>;
+		debug = <0>;
+	};
+};
